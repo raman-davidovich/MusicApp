@@ -10,7 +10,7 @@ const AudioProvider = ({ children }) => {
   const [isPlaying, setPlaying] = useState(false);
 
   const handleToggleAudio = (track) => {
-    audio.src = track.src;
+    // audio.src = track.src; solve issue with first playing
 
     if (currentTrack.id !== track.id) {
       setCurrentTrack(track);
@@ -32,7 +32,7 @@ const AudioProvider = ({ children }) => {
     }
   };
 
-  const value = { currentTrack, isPlaying, handleToggleAudio };
+  const value = { audio, currentTrack, isPlaying, handleToggleAudio };
 
   return (
     <AudioContext.Provider value={value}>{children}</AudioContext.Provider>

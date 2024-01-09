@@ -10,6 +10,8 @@ const AudioProvider = ({ children }) => {
   const [isPlaying, setPlaying] = useState(false);
 
   const handleToggleAudio = (track) => {
+    audio.src = track.src;
+
     if (currentTrack.id !== track.id) {
       setCurrentTrack(track);
       setPlaying(true);

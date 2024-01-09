@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import tracksList from "../assets/tracksList";
 
 const audio = new Audio();
+audio.src = tracksList[0].src;
 
 export const AudioContext = createContext({});
 
@@ -10,8 +11,6 @@ const AudioProvider = ({ children }) => {
   const [isPlaying, setPlaying] = useState(false);
 
   const handleToggleAudio = (track) => {
-    // audio.src = track.src; solve issue with first playing
-
     if (currentTrack.id !== track.id) {
       setCurrentTrack(track);
       setPlaying(true);
